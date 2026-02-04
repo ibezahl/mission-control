@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS tasks (
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   description TEXT,
-  column TEXT NOT NULL CHECK (column IN ('top_priorities', 'job_search_pipe', 'intelligence_monitoring', 'tonights_mission', 'family_personal', 'done')),
+  board_column TEXT NOT NULL CHECK (board_column IN ('top_priorities', 'job_search_pipe', 'intelligence_monitoring', 'tonights_mission', 'family_personal', 'done')),
   position INTEGER NOT NULL DEFAULT 0,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS tasks (
 
 -- Create indexes for performance
 CREATE INDEX IF NOT EXISTS tasks_user_id_idx ON tasks(user_id);
-CREATE INDEX IF NOT EXISTS tasks_column_idx ON tasks(column);
+CREATE INDEX IF NOT EXISTS tasks_board_column_idx ON tasks(board_column);
 
 -- Enable RLS (Row Level Security)
 ALTER TABLE users ENABLE ROW LEVEL SECURITY;

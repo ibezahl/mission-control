@@ -30,8 +30,8 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Trigger to update task's updated_at field
-DROP TRIGGER IF EXISTS update_tasks_updated_at ON tasks;
+DROP TRIGGER IF EXISTS update_tasks_updated_at ON public.tasks;
 CREATE TRIGGER update_tasks_updated_at
-  BEFORE UPDATE ON tasks
+  BEFORE UPDATE ON public.tasks
   FOR EACH ROW
   EXECUTE FUNCTION update_updated_at();
