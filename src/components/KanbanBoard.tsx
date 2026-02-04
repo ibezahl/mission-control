@@ -58,22 +58,31 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
 
     // Subscribe to real-time updates
     const subscription = supabase
-      .from('tasks')
-      .on('*', (payload) => {
-        if (payload.eventType === 'INSERT') {
-          setTasks((prev) => [...prev, payload.new as Task]);
-        } else if (payload.eventType === 'UPDATE') {
-          setTasks((prev) =>
-            prev.map((t) => (t.id === payload.new.id ? payload.new : t) as Task)
-          );
-        } else if (payload.eventType === 'DELETE') {
-          setTasks((prev) => prev.filter((t) => t.id !== payload.old.id));
+      .channel('tasks')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'tasks',
+          filter: `user_id=eq.${userId}`,
+        },
+        (payload: any) => {
+          if (payload.eventType === 'INSERT') {
+            setTasks((prev) => [...prev, payload.new as Task]);
+          } else if (payload.eventType === 'UPDATE') {
+            setTasks((prev) =>
+              prev.map((t) => (t.id === payload.new.id ? (payload.new as Task) : t))
+            );
+          } else if (payload.eventType === 'DELETE') {
+            setTasks((prev) => prev.filter((t) => t.id !== payload.old.id));
+          }
         }
-      })
+      )
       .subscribe();
 
     return () => {
-      subscription.unsubscribe();
+      supabase.removeChannel(subscription);
     };
   }, [userId]);
 
