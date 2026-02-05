@@ -74,7 +74,7 @@ export async function moveTask(
   targetPosition: number
 ) {
   return updateTask(taskId, {
-    column: targetColumn,
+    board_column: targetColumn,
     position: targetPosition,
   });
 }
