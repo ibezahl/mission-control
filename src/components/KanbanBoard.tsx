@@ -138,9 +138,9 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
     if (!activeTask) return;
 
     const overData = over.data?.current;
-    const targetColumn = (overData?.column || overData?.task?.column) as KanbanColumn;
+    const targetColumn = (overData?.board_column || overData?.task?.board_column) as KanbanColumn;
 
-    if (targetColumn && activeTask.column !== targetColumn) {
+    if (targetColumn && activeTask.board_column !== targetColumn) {
       setTasks((prev) =>
         prev.map((t) =>
           t.id === activeTask.id ? { ...t, column: targetColumn } : t
@@ -158,11 +158,11 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
     if (!activeTask) return;
 
     const overData = over.data?.current;
-    const targetColumn = (overData?.column || overData?.task?.column) as KanbanColumn;
+    const targetColumn = (overData?.board_column || overData?.task?.board_column) as KanbanColumn;
 
     // Recalculate positions for the target column
     const tasksInTargetColumn = tasks
-      .filter((t) => t.column === targetColumn)
+      .filter((t) => t.board_column === targetColumn)
       .sort((a, b) => a.position - b.position);
 
     try {
@@ -172,7 +172,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
       // Revert on error
       setTasks((prev) =>
         prev.map((t) =>
-          t.id === activeTask.id ? { ...t, column: activeTask.column } : t
+          t.id === activeTask.id ? { ...t, column: activeTask.board_column } : t
         )
       );
     }
@@ -188,7 +188,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
 
   const columnTaskMap = COLUMNS.reduce(
     (acc, col) => {
-      acc[col.id] = tasks.filter((t) => t.column === col.id);
+      acc[col.id] = tasks.filter((t) => t.board_column === col.id);
       return acc;
     },
     {} as Record<KanbanColumn, Task[]>

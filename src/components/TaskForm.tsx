@@ -33,7 +33,7 @@ export default function TaskForm({
     if (task) {
       setTitle(task.title);
       setDescription(task.description || '');
-      setColumn(task.column);
+      setColumn(task.board_column);
     } else {
       setTitle('');
       setDescription('');
