@@ -143,7 +143,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
     if (targetColumn && activeTask.board_column !== targetColumn) {
       setTasks((prev) =>
         prev.map((t) =>
-          t.id === activeTask.id ? { ...t, column: targetColumn } : t
+          t.id === activeTask.id ? { ...t, board_column: targetColumn } : t
         )
       );
     }
