@@ -104,7 +104,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
   const handleEditTask = async (
     title: string,
     description: string,
-    column: KanbanColumn
+    board_column: KanbanColumn
   ) => {
     if (!selectedTask) return;
 
@@ -112,7 +112,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
       await updateTask(selectedTask.id, {
         title,
         description,
-        column,
+        board_column,
       });
       setIsFormOpen(false);
       setSelectedTask(undefined);
