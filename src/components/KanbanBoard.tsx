@@ -180,7 +180,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-cyber-bg flex items-center justify-center text-cyber-border">
+      <div className="min-h-screen bg-cyber-bg flex items-center justify-center text-cyber-text">
         [LOADING MISSION DATA...]
       </div>
     );
@@ -202,7 +202,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
         onDragOver={handleDragOver}
         onDragEnd={handleDragEnd}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-0 auto-rows-max">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 auto-rows-max p-4">
           {COLUMNS.map((col) => (
             <Column
               key={col.id}
@@ -224,7 +224,7 @@ export default function KanbanBoard({ userId }: KanbanBoardProps) {
           setSelectedTask(undefined);
           setIsFormOpen(true);
         }}
-        className="fixed bottom-8 right-8 bg-cyber-border text-cyber-bg px-6 py-3 font-bold text-lg hover:bg-cyber-accent transition-colors cursor-pointer shadow-lg shadow-cyber-border"
+        className="fixed bottom-8 right-8 bg-cyber-accent text-cyber-bg px-6 py-3 font-semibold text-lg hover:brightness-95 transition-colors cursor-pointer shadow-md rounded-lg"
       >
         [+ NEW TASK]
       </button>

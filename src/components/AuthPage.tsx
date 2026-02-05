@@ -36,9 +36,9 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen bg-cyber-bg flex items-center justify-center font-mono">
-      <div className="w-full max-w-md p-8 bg-cyber-dark border-2 border-cyber-border">
-        <h1 className="text-4xl font-bold text-cyber-border mb-2 text-center">
+    <div className="min-h-screen bg-cyber-bg flex items-center justify-center">
+      <div className="w-full max-w-md p-8 bg-cyber-dark border border-cyber-border rounded-xl shadow-sm">
+        <h1 className="text-4xl font-semibold text-cyber-text mb-2 text-center">
           [MISSION CONTROL]
         </h1>
         <p className="text-cyber-secondary text-center mb-8">
@@ -47,35 +47,35 @@ export default function AuthPage() {
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-cyber-border text-sm mb-2">
+            <label className="block text-cyber-text text-sm mb-2">
               EMAIL ADDRESS
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-cyber-bg border border-cyber-border px-4 py-2 text-cyber-text focus:outline-none focus:border-cyber-accent focus:shadow-lg focus:shadow-cyber-accent"
+              className="w-full bg-cyber-dark border border-cyber-border px-4 py-2 text-cyber-text focus:border-cyber-accent focus:ring-2 focus:ring-cyber-accent/20"
               disabled={loading}
               required
             />
           </div>
 
           <div>
-            <label className="block text-cyber-border text-sm mb-2">
+            <label className="block text-cyber-text text-sm mb-2">
               PASSWORD
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-cyber-bg border border-cyber-border px-4 py-2 text-cyber-text focus:outline-none focus:border-cyber-accent focus:shadow-lg focus:shadow-cyber-accent"
+              className="w-full bg-cyber-dark border border-cyber-border px-4 py-2 text-cyber-text focus:border-cyber-accent focus:ring-2 focus:ring-cyber-accent/20"
               disabled={loading}
               required
             />
           </div>
 
           {error && (
-            <div className="bg-red-900 border border-red-500 p-3 text-red-200 text-sm">
+            <div className="bg-rose-50 border border-rose-200 p-3 text-rose-700 text-sm rounded-md">
               ⚠ {error}
             </div>
           )}
@@ -83,7 +83,7 @@ export default function AuthPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-cyber-border text-cyber-bg font-bold py-2 hover:bg-cyber-accent hover:text-cyber-bg transition-all disabled:opacity-50 cursor-pointer"
+            className="w-full bg-cyber-accent text-cyber-bg font-semibold py-2 hover:brightness-95 transition-all disabled:opacity-50 cursor-pointer rounded-md"
           >
             {loading ? 'PROCESSING...' : isSignUp ? 'SIGN UP' : 'SIGN IN'}
           </button>

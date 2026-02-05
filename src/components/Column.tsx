@@ -19,10 +19,10 @@ interface ColumnProps {
 const COLUMN_COLORS: Record<KanbanColumnType, string> = {
   top_priorities: 'border-cyber-accent',
   job_search_pipe: 'border-cyber-secondary',
-  intelligence_monitoring: 'border-yellow-500',
-  tonights_mission: 'border-red-500',
-  family_personal: 'border-blue-500',
-  done: 'border-green-500',
+  intelligence_monitoring: 'border-amber-300',
+  tonights_mission: 'border-rose-300',
+  family_personal: 'border-sky-300',
+  done: 'border-emerald-300',
 };
 
 export default function Column({
@@ -43,9 +43,9 @@ export default function Column({
   return (
     <div
       ref={setNodeRef}
-      className={`bg-cyber-dark border-2 ${COLUMN_COLORS[column]} p-4 rounded-none min-h-screen flex flex-col`}
+      className={`bg-cyber-dark border ${COLUMN_COLORS[column]} p-5 rounded-xl min-h-screen flex flex-col shadow-sm`}
     >
-      <h2 className="text-xl font-bold text-cyber-border mb-4 uppercase">
+      <h2 className="text-lg font-semibold text-cyber-text mb-4">
         [{title}]
       </h2>
       <SortableContext
@@ -54,7 +54,7 @@ export default function Column({
       >
         <div className="space-y-3 flex-1">
           {tasks.length === 0 ? (
-            <div className="text-cyber-secondary text-sm opacity-50">
+            <div className="text-cyber-secondary text-sm opacity-70">
               // No tasks
             </div>
           ) : (

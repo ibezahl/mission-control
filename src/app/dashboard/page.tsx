@@ -43,7 +43,7 @@ export default function Dashboard() {
 
   if (isLoading || !userId) {
     return (
-      <div className="min-h-screen bg-cyber-bg flex items-center justify-center text-cyber-border font-mono">
+      <div className="min-h-screen bg-cyber-bg flex items-center justify-center text-cyber-text">
         [LOADING OPERATIVE PROFILE...]
       </div>
     );
@@ -51,13 +51,13 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div className="bg-cyber-dark border-b-2 border-cyber-border p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-cyber-border">
+      <div className="bg-cyber-dark border-b border-cyber-border p-4 flex justify-between items-center">
+        <h1 className="text-2xl font-semibold text-cyber-text">
           [MISSION CONTROL - OPERATIVE: {userEmail.toUpperCase()}]
         </h1>
         <button
           onClick={handleSignOut}
-          className="bg-red-600 text-white px-4 py-2 hover:bg-red-700 transition-colors cursor-pointer font-mono font-bold"
+          className="bg-rose-500 text-white px-4 py-2 hover:bg-rose-600 transition-colors cursor-pointer font-semibold rounded-md"
         >
           LOGOUT
         </button>

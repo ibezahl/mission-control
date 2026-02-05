@@ -10,25 +10,26 @@ const config: Config = {
     extend: {
       colors: {
         cyber: {
-          bg: "#0a0a0a",
-          dark: "#1a1a1a",
-          border: "#00ff00",
-          accent: "#ff00ff",
-          secondary: "#00ffff",
-          text: "#ffffff",
+          bg: "#F6F4F0",
+          dark: "#FFFFFF",
+          border: "#D7D1C7",
+          accent: "#3E4E68",
+          secondary: "#5E6A64",
+          text: "#2E2A26",
         },
       },
       fontFamily: {
-        mono: ["Courier New", "monospace"],
+        sans: ["IBM Plex Sans", "ui-sans-serif", "system-ui"],
+        mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       backgroundColor: {
-        "cyber-dark": "#0a0a0a",
+        "cyber-dark": "#FFFFFF",
       },
       textColor: {
-        cyber: "#00ff00",
+        cyber: "#3E4E68",
       },
       borderColor: {
-        cyber: "#00ff00",
+        cyber: "#D7D1C7",
       },
     },
   },

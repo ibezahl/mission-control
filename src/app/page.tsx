@@ -28,7 +28,7 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-cyber-bg flex items-center justify-center text-cyber-border font-mono">
+      <div className="min-h-screen bg-cyber-bg flex items-center justify-center text-cyber-text">
         [INITIALIZING SYSTEMS...]
       </div>
     );

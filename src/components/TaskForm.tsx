@@ -54,45 +54,45 @@ export default function TaskForm({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-      <div className="bg-cyber-dark border-4 border-cyber-border max-w-md w-full p-6">
-        <h2 className="text-2xl font-bold text-cyber-border mb-4">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+      <div className="bg-cyber-dark border border-cyber-border max-w-md w-full p-6 rounded-xl shadow-lg">
+        <h2 className="text-2xl font-semibold text-cyber-text mb-4">
           {task ? '[EDIT TASK]' : '[NEW TASK]'}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-cyber-border text-sm mb-2">
+            <label className="block text-cyber-text text-sm mb-2">
               TITLE
             </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full bg-cyber-bg border border-cyber-border px-4 py-2 text-cyber-text focus:outline-none focus:border-cyber-accent focus:shadow-lg focus:shadow-cyber-accent"
+              className="w-full bg-cyber-dark border border-cyber-border px-4 py-2 text-cyber-text focus:border-cyber-accent focus:ring-2 focus:ring-cyber-accent/20"
               autoFocus
             />
           </div>
 
           <div>
-            <label className="block text-cyber-border text-sm mb-2">
+            <label className="block text-cyber-text text-sm mb-2">
               DESCRIPTION
             </label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full bg-cyber-bg border border-cyber-border px-4 py-2 text-cyber-text focus:outline-none focus:border-cyber-accent focus:shadow-lg focus:shadow-cyber-accent h-24 resize-none"
+              className="w-full bg-cyber-dark border border-cyber-border px-4 py-2 text-cyber-text focus:border-cyber-accent focus:ring-2 focus:ring-cyber-accent/20 h-24 resize-none"
             />
           </div>
 
           <div>
-            <label className="block text-cyber-border text-sm mb-2">
+            <label className="block text-cyber-text text-sm mb-2">
               COLUMN
             </label>
             <select
               value={column}
               onChange={(e) => setColumn(e.target.value as KanbanColumn)}
-              className="w-full bg-cyber-bg border border-cyber-border px-4 py-2 text-cyber-text focus:outline-none focus:border-cyber-accent"
+              className="w-full bg-cyber-dark border border-cyber-border px-4 py-2 text-cyber-text focus:border-cyber-accent focus:ring-2 focus:ring-cyber-accent/20"
             >
               {COLUMNS.map((col) => (
                 <option key={col.value} value={col.value}>
@@ -105,14 +105,14 @@ export default function TaskForm({
           <div className="flex gap-3 pt-4">
             <button
               type="submit"
-              className="flex-1 bg-cyber-border text-cyber-bg font-bold py-2 hover:bg-cyber-accent transition-colors cursor-pointer"
+              className="flex-1 bg-cyber-accent text-cyber-bg font-semibold py-2 hover:brightness-95 transition-colors cursor-pointer rounded-md"
             >
               {task ? 'UPDATE' : 'CREATE'}
             </button>
             <button
               type="button"
               onClick={onCancel}
-              className="flex-1 bg-cyber-bg border border-cyber-border text-cyber-border font-bold py-2 hover:bg-cyber-border hover:text-cyber-bg transition-colors cursor-pointer"
+              className="flex-1 bg-cyber-bg border border-cyber-border text-cyber-text font-semibold py-2 hover:bg-cyber-border transition-colors cursor-pointer rounded-md"
             >
               CANCEL
             </button>

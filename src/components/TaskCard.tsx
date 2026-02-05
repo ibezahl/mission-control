@@ -38,28 +38,28 @@ export default function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
       style={style}
       {...attributes}
       {...listeners}
-      className={`bg-cyber-dark border-2 border-cyber-border p-4 cursor-grab active:cursor-grabbing hover:border-cyber-accent hover:shadow-lg hover:shadow-cyber-accent transition-all ${
+      className={`bg-cyber-dark border border-cyber-border p-4 rounded-lg cursor-grab active:cursor-grabbing hover:border-cyber-accent hover:shadow-md transition-shadow transition-colors shadow-sm ${
         isDragging ? 'opacity-50' : ''
       }`}
     >
-      <h3 className="text-cyber-border font-bold mb-2 break-words">
+      <h3 className="text-cyber-text font-semibold mb-2 break-words">
         {task.title}
       </h3>
       {task.description && (
-        <p className="text-cyber-secondary text-sm mb-3 break-words">
+        <p className="text-cyber-secondary text-sm mb-3 break-words leading-relaxed">
           {task.description}
         </p>
       )}
       <div className="flex gap-2 justify-end">
         <button
           onClick={() => onEdit(task)}
-          className="text-cyber-secondary text-xs px-2 py-1 border border-cyber-secondary hover:bg-cyber-secondary hover:text-cyber-bg transition-colors"
+          className="text-cyber-accent text-sm px-3 py-1 border border-cyber-accent/40 hover:bg-cyber-accent hover:text-cyber-bg transition-colors rounded-md"
         >
           EDIT
         </button>
         <button
           onClick={() => onDelete(task.id)}
-          className="text-red-400 text-xs px-2 py-1 border border-red-400 hover:bg-red-400 hover:text-cyber-bg transition-colors"
+          className="text-rose-600 text-sm px-3 py-1 border border-rose-300 hover:bg-rose-50 hover:text-rose-700 transition-colors rounded-md"
         >
           DELETE
         </button>
